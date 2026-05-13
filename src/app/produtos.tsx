@@ -35,14 +35,33 @@ export default function Produtos() {
   }
 
   return (
-    <View style={{ padding: 20 }}>
+    <View style={{ 
+      flex: 1,
+      padding: 20,
+      paddingTop: 60,
+      backgroundColor: "#fff"
+    }}>
 
-      <Text>Cadastro de Produto</Text>
+      <Text style={{ 
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 30
+      }}>
+        Cadastro de Produto
+      </Text>
 
       <TextInput
         placeholder="Nome do produto"
         value={nome}
         onChangeText={setNome}
+        style={{
+          borderWidth: 1,
+          borderColor: "#ccc",
+          borderRadius: 10,
+          padding: 15,
+          marginBottom: 20,
+          fontSize: 16
+        }}
       />
 
       <TextInput
@@ -50,20 +69,41 @@ export default function Produtos() {
         value={preco}
         onChangeText={setPreco}
         keyboardType="numeric"
+        style={{
+          borderWidth: 1,
+          borderColor: "#ccc",
+          borderRadius: 10,
+          padding: 15,
+          marginBottom: 25,
+          fontSize: 16
+        }}
       />
 
-      <Button
-        title="Salvar Produto"
-        onPress={salvarProduto}
-      />
+      <View style={{ marginBottom: 15 }}>
+        <Button
+          title="Salvar Produto"
+          onPress={salvarProduto}
+        />
+      </View>
 
-      <Button
-        title="Ver Produtos"
-        onPress={carregarProdutos}
-      />
+      <View style={{ marginBottom: 30 }}>
+        <Button
+          title="Ver Produtos"
+          onPress={carregarProdutos}
+        />
+      </View>
 
       {produtos.map((item, index) => (
-        <Text key={index}>
+        <Text 
+          key={index}
+          style={{
+            fontSize: 16,
+            marginBottom: 10,
+            padding: 12,
+            backgroundColor: "#f5f5f5",
+            borderRadius: 8
+          }}
+        >
           {item.nome} - R$ {item.preco}
         </Text>
       ))}
